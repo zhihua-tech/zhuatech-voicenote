@@ -12,8 +12,14 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class VoiceNoteService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public NoteResult process(NoteRequest request) {
         List<String> warnings = new ArrayList<>();
         if (request.durationSeconds() < 10) warnings.add("录音较短，摘要信息可能不完整");
@@ -42,6 +48,9 @@ public class VoiceNoteService {
             List.of("仓储系统", "接口联调", "客户验收"), segments, actions, List.copyOf(warnings), providerPayload, "LOCAL_DEMO_PIPELINE");
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record NoteRequest(
         @NotBlank String audioObjectKey,
         @Min(3) @Max(14400) int durationSeconds,
@@ -52,8 +61,17 @@ public class VoiceNoteService {
         @Size(max = 500) String contextHint
     ) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Segment(String timestamp, String speaker, String text) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record ActionItem(String task, String owner, String dueDate, String status) {}
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record NoteResult(String status, String title, String summary, List<String> topics,
                              List<Segment> segments, List<ActionItem> actionItems, List<String> warnings,
                              Map<String, Object> providerPayload, String executionMode) {}

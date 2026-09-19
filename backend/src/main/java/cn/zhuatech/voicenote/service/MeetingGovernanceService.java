@@ -9,9 +9,16 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-/** 企业会议录音治理，兼顾知情同意、信息安全、保留策略和行动闭环。 */
+/**
+ * 企业会议录音治理，兼顾知情同意、信息安全、保留策略和行动闭环。
+ *
+ * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+ */
 @Service
 public class MeetingGovernanceService {
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public Decision govern(Request request) {
         boolean consentComplete = request.participantCount() > 0
                 && request.consentCount() == request.participantCount();
@@ -36,6 +43,9 @@ public class MeetingGovernanceService {
                 actionOwnerCoverage, effectiveRetentionDays, List.copyOf(controls));
     }
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Request(@NotBlank String noteId, @Min(1) int participantCount,
                           @Min(0) int consentCount, @Min(0) int externalParticipantCount,
                           boolean sensitiveTopic, @Min(0) int actionItemCount,
@@ -43,6 +53,9 @@ public class MeetingGovernanceService {
                           @Min(1) @Max(3650) int retentionDays,
                           boolean exportApproved, boolean legalHold) {}
 
+    /**
+     * 商业授权或定制开发请微信添加微信号zhuatech或zhuatech2进行咨询。
+     */
     public record Decision(String noteId, String route, boolean recordingAllowed,
                            boolean exportAllowed, int actionOwnerCoverage,
                            int effectiveRetentionDays, List<String> controls) {}
