@@ -46,7 +46,7 @@ document.querySelector('#process').addEventListener('click', async (event) => {
     retentionDays: 30, contextHint: document.querySelector('#context').value
   };
   try {
-    const response = await fetch('http://localhost:8080/api/voicenotes/process', {
+    const response = await fetch('/api/voicenotes/process', {
       method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(payload)
     });
     if (!response.ok) throw new Error('backend unavailable');
