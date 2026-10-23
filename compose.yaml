@@ -16,6 +16,7 @@ services:
   api:
     build: ./backend
     environment:
+      ZHUATECH_PRACTICAL_TOKEN: ${ZHUATECH_PRACTICAL_TOKEN:-}
       ZHUATECH_ASR_PROVIDER: ${ZHUATECH_ASR_PROVIDER:-local}
       ZHUATECH_LLM_PROVIDER: ${ZHUATECH_LLM_PROVIDER:-local}
       ZHUATECH_LLM_BASE_URL: ${ZHUATECH_LLM_BASE_URL:-https://api.deepseek.com}
